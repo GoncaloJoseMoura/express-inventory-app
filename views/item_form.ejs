@@ -1,0 +1,76 @@
+<h1><%= title %></h1>
+<form method="post">
+  <div class="form-group">
+    <label for="name">Name: </label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      class="form-control"
+      placeholder="name"
+      required
+      value="<%= item === undefined ? '' : item.name %>"
+    />
+  </div>
+  <div class="form-group">
+    <label for="description">Description: </label>
+    <input
+      type="text"
+      name="description"
+      id="description"
+      class="form-control"
+      placeholder="description"
+      required
+      value="<%= item === undefined ? '' : item.description %>"
+    />
+  </div>
+  <div class="form-group">
+    <label for="price">Price: </label>
+    <input
+      type="number"
+      step="0.01"
+      min="0"
+      name="price"
+      id="price"
+      class="form-control"
+      placeholder="16"
+      required
+      value="<%= item === undefined ? '' : item.price %>"
+    />
+  </div>
+  <div class="form-group">
+    <label for="numberInStock">Stock: </label>
+    <input
+      type="number"
+      min="0"
+      name="numberInStock"
+      id="numberInStock"
+      class="form-control"
+      placeholder="2"
+      required
+      value="<%= item === undefined ? '' : item.numberInStock %>"
+    />
+  </div>
+  <div class="form-group">
+    <label for="category">Category: </label>
+    <select class="form-control" name="category" id="category" required>
+      <option value="">--Please Select a Category--</option>
+      <% categories.forEach(category => { if (item) { if
+      (category._id.toString()===item.category._id.toString()) {%>
+      <option value="<%= category._id %>" selected><%= category.name %></option>
+      <% } else { %>
+      <option value="<%= category._id %>"><%= category.name %></option>
+      <% } %> <% } else { %>
+      <option value="<%= category._id %>"><%= category.name %></option>
+      <% } %> <% }); %>
+    </select>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<% if(errors) { %>
+<ul>
+  <% errors.forEach(error => { %>
+  <li><%= error.msg %></li>
+  <% }) %>
+</ul>
+<% } %>

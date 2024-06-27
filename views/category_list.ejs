@@ -1,0 +1,15 @@
+<div class="categories-list">
+  <h1><%= title %></h1>
+  <div class="categories">
+    <% categories_list.forEach(category => { %>
+    <div class="category-item">
+      <a class="info" href="<%= category.url %>">
+        <p><%= category.name %></p>
+        <p><%= category.description %></p>
+      </a>
+      <a class="update" href="<%= category.url + '/update'%>">Update</a>
+      <a class="delete" href="<%= category.url + '/delete'%>">Delete</a>
+    </div>
+    <% }) %>
+  </div>
+</div>

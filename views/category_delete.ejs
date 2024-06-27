@@ -1,0 +1,28 @@
+<h1><%= title %>: <%= category.name %></h1>
+
+<% if (category_items.length) { %>
+<p style="text-align: center">
+  <strong
+    >Delete the following items before attempting to delete this
+    category.</strong
+  >
+</p>
+<%- include('item_list.ejs', {items: category_items, title: 'Items'})%> <% }
+else { %>
+<p style="text-align: center; margin-bottom: 30px">
+  Do you really want to delete this category?
+</p>
+
+<form method="POST">
+  <div class="form-group">
+    <input
+      id="categoryid"
+      class="form-control"
+      type="hidden"
+      name="categoryid"
+      value="<%= category._id %>"
+    />
+  </div>
+  <button class="btn btn-primary" type="submit">Delete</button>
+</form>
+<% } %>

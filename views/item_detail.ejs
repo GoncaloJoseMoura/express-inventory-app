@@ -1,0 +1,16 @@
+<div class="item-detail">
+  <h1><%= item.name %></h1>
+  <h4>Category:</h4>
+  <p><%= item.category.name %></p>
+  <h4>Description:</h4>
+  <p><%= item.description %></p>
+  <h4>Price:</h4>
+  <p><%= item.price %>$</p>
+  <h4>Stock:</h4>
+  <p><%= item.numberInStock %></p>
+
+  <div>
+    <a class="update" href="<%= item.url+'/update' %>">Update</a>
+    <a class="delete" href="<%= item.url+'/delete' %>">Delete</a>
+  </div>
+</div>

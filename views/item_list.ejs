@@ -1,0 +1,11 @@
+<div class="items-list">
+  <% if (title !== undefined) {%>
+  <h1><%= title %></h1>
+  <% }%> <% items.forEach(item => { %>
+  <a href="<%= item.url %>" class="item-card">
+    <p><%= item.name %></p>
+    <p><%= item.price %> $</p>
+    <p><%= item.numberInStock %> in stock</p>
+  </a>
+  <% }); %>
+</div>
