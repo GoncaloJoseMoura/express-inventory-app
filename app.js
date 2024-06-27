@@ -13,7 +13,6 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-
 mongoose.set("strictQuery", false);
 const mongoDB = process.env.MONGODB_URI;
 
@@ -25,7 +24,7 @@ async function main() {
 
 const limiter = RateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
-  max: 40,
+  max: 80,
 });
 
 // view engine setup

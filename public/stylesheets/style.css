@@ -243,6 +243,7 @@ form {
   justify-content: center;
 
   div {
+    margin-top: 40px;
     display: flex;
     gap: 20px;
 
